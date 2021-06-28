@@ -1,0 +1,49 @@
+-- This is a test file
+N = 4
+local matrix = {}
+INF = 10000000
+matrix[1] = {0, 3, INF, 5}
+matrix[2] = {2, 0, INF, 4}
+matrix[3] = {INF, 1, 0, INF}
+matrix[4] = {INF, INF, 2, 0}
+
+--local matrix2 = matrix
+--TODO this should be renamed
+local matrix2 = {}
+--for index, value in ipairs(matrix2[0]) do
+--    print(index, value)
+--end
+
+for k, v in ipairs(matrix) do
+    for _k, _v in ipairs(matrix[k]) do
+        print(_v)
+        end
+    print("*************")
+end
+
+for i=1, N do
+    matrix2[i] = {}
+    for j = 1, N do
+        matrix2[i][j] = matrix[i][j]
+    end
+end
+
+print("---------------")
+
+for k=1, N do
+    for i=1, N do
+        for j = 1, N do
+            if (matrix2[i][k] + matrix2[k][j] < matrix2[i][j]) then
+                matrix2[i][j] = matrix2[i][k] + matrix2[k][j]
+            end
+        end
+    end
+end
+
+for k, v in ipairs(matrix2) do
+    for _k, _v in ipairs(matrix2[k]) do
+        print(_v)
+        end
+    print("*************")
+end
+
