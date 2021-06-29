@@ -60,6 +60,36 @@ function matrix.calculateRoute(pointA, pointB)
         print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
         print("-*-***---*-*--**-***-*-*")
         matrix.calculateRoute(newPointA, pointB)
+    elseif (resultX < 0 and resultY == 0) then
+        local newPointA = {pointA[x] - 1, pointA[y]}
+        print("-*-***---*-*--**-***-*-*")
+        print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
+        print("-*-***---*-*--**-***-*-*")
+        matrix.calculateRoute(newPointA, pointB)
+    elseif (resultX == 0 and resultY < 0) then
+        local newPointA = {pointA[x], pointA[y] - 1}
+        print("-*-***---*-*--**-***-*-*")
+        print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
+        print("-*-***---*-*--**-***-*-*")
+        matrix.calculateRoute(newPointA, pointB)
+    elseif (resultX  < 0 and resultY == 0) then
+        local newPointA = {pointA[x] - 1, pointA[y]}
+        print("-*-***---*-*--**-***-*-*")
+        print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
+        print("-*-***---*-*--**-***-*-*")
+        matrix.calculateRoute(newPointA, pointB)
+    elseif (resultX > 0 and resultY < 0) then
+        local newPointA = {pointA[x] +1 , pointA[y] - 1}
+        print("-*-***---*-*--**-***-*-*")
+        print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
+        print("-*-***---*-*--**-***-*-*")
+        matrix.calculateRoute(newPointA, pointB)
+    elseif (resultX < 0 and resultY > 0) then
+        local newPointA = {pointA[x] - 1, pointA[y] + 1}
+        print("-*-***---*-*--**-***-*-*")
+        print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
+        print("-*-***---*-*--**-***-*-*")
+        matrix.calculateRoute(newPointA, pointB)
     else
         local newPointA = {pointA[x]+1, pointA[y] + 1}
         print("-*-***---*-*--**-***-*-*")
