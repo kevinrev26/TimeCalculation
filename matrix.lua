@@ -38,4 +38,37 @@ function matrix.createMatrix(n)
     return grid
 end
 
+function matrix.calculateRoute(pointA, pointB)
+    local x = 1
+    local y = 2
+
+    local resultX = pointB[x] - pointA[x]
+    local resultY = pointB[y] - pointA[y]
+    
+    -- There should be a better implementation
+    if (resultX == 0 and resultY == 0) then
+        return
+    elseif (resultX > 0 and resultY == 0) then
+        local newPointA = {pointA[x] + 1, pointA[y]}
+        print("-*-***---*-*--**-***-*-*")
+        print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
+        print("-*-***---*-*--**-***-*-*")
+        matrix.calculateRoute(newPointA, pointB)
+    elseif (resultX == 0 and resultY > 0) then
+        local newPointA = {pointA[x], pointA[y] + 1}
+        print("-*-***---*-*--**-***-*-*")
+        print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
+        print("-*-***---*-*--**-***-*-*")
+        matrix.calculateRoute(newPointA, pointB)
+    else
+        local newPointA = {pointA[x]+1, pointA[y] + 1}
+        print("-*-***---*-*--**-***-*-*")
+        print("{" .. newPointA[x] .. "," .. newPointA[y] .. "}")
+        print("-*-***---*-*--**-***-*-*")
+        matrix.calculateRoute(newPointA, pointB)        
+    end
+
+end
+
+
 return matrix

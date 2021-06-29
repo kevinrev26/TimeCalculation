@@ -1,11 +1,15 @@
 local matrix = require("matrix")
 
 
-local grid = matrix.createMatrix(5)
+-- A table representing the initial coordinate {i,j}
+local initialPosition = {0,0}
 
-for k,v in pairs(grid) do
-    print("Row: ", k)
-    for key, value in pairs(v) do
-        print("value: ", value)
-    end
-end
+-- A table representing the final coordinate {i,j}
+local finalPosition = {3,4}
+
+-- Size of the grid
+local n = 5
+
+local grid = matrix.createMatrix(n)
+
+matrix.calculateRoute(initialPosition, finalPosition)
