@@ -1,7 +1,11 @@
-local generator = require("tilegenerator")
+local matrix = require("matrix")
 
-local tile = generator.generate(100)
 
-for key, value in pairs(tile) do
-    print(key, value)
+local grid = matrix.createMatrix(5)
+
+for k,v in pairs(grid) do
+    print("Row: ", k)
+    for key, value in pairs(v) do
+        print("value: ", value)
+    end
 end
