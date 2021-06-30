@@ -30,7 +30,7 @@ function time.calculateTime(grid, nodes, velocity)
         accumulatedSpeed = accumulatedSpeed + velocity*(1+factor)
     end
 
-    return accumulatedSpeed
+    return numberOfTiles/accumulatedSpeed
 end
 
 return time
